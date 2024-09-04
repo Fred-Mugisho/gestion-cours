@@ -1,0 +1,25 @@
+:root {
+    --white-color: #FFFFFF;
+    --primary-color: #EB9F04;
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.text-white {
+    color: var(--white-color);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-primary:hover {
+    background-color: #D38B04;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+a.active {
+    color: var(--primary-color);
+}
