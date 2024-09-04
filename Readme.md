@@ -13,6 +13,7 @@
 ### HTML --> https://www.w3schools.com
 ### CSS --> https://www.w3schools.com
 ### JavaScript --> https://www.w3schools.com
+### Github --> https://git-scm.com/doc
 
 
 ## 3. Etapes de creation du projet django
@@ -28,7 +29,7 @@
 #### python manage.py runserver
 #### ctrl + c
 #### python manage.py makemigrations
-#### python manage.py 
+#### python manage.py migrate
 #### python manage.py startapp cours
 
 ## 4. Configuration du projet django
@@ -38,7 +39,7 @@
 #####     .....
 #####     'cours.apps.CoursConfig',
 ##### ]
-### Aller dans le fichier urls du projet et ajouter l'url de la nouvelle app
+### Aller dans le fichier urls du projet et ajouter l'urls de la nouvelle app
 ##### from django.urls import path, include
 ##### from django.contrib import admin
 #### urlpatterns = [
@@ -61,7 +62,6 @@
 ##### ]
 
 ### Pour ajouter les fichiers statiques dans le projet django
-#### python manage.py startapp cours
 #### Aller dans le fichier settings.py et ajouter la nouvelle app
 ##### STATICFILES_DIRS = [
 #####    BASE_DIR / 'static',

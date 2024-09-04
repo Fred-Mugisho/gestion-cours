@@ -14,6 +14,7 @@
 
 .bg-primary:hover {
     background-color: #D38B04;
+    color: var(--white-color) !important;
 }
 
 a:hover {
