@@ -1,68 +1,85 @@
-# Introduction aux applications web
+# Introduction aux Applications Web
 
-## 1. Les technologies utilisées
-### -> Django / Python
-### -> Tailwind CSS
-### -> HTML / CSS / JavaScript
+Ce projet vise à présenter les fondamentaux du développement d'applications web en utilisant des technologies modernes. Il a été développé avec **Django**, **Python**, et stylisé avec **Tailwind CSS**.
 
-## 2. Liens
-### Repo github --> https://github.com/Fred-Mugisho/gestion-cours
-### Tailwind CSS --> https://tailwindcss.com/
-### Django --> https://www.djangoproject.com
-### Python --> https://www.python.org
-### HTML --> https://www.w3schools.com
-### CSS --> https://www.w3schools.com
-### JavaScript --> https://www.w3schools.com
-### Github --> https://git-scm.com/doc
+## 1. Technologies Utilisées
+- **Django / Python** : Framework web puissant et flexible.
+- **Tailwind CSS** : Framework CSS pour une conception rapide et réactive.
+- **HTML / CSS / JavaScript** : Langages de base pour la création de pages web interactives.
 
+## 2. Liens Utiles
+- **Dépôt GitHub** : [Gestion Cours Repository](https://github.com/Fred-Mugisho/gestion-cours)
+- **Documentation Tailwind CSS** : [Tailwind CSS](https://tailwindcss.com/)
+- **Site Officiel de Django** : [Django](https://www.djangoproject.com)
+- **Site Officiel de Python** : [Python](https://www.python.org)
+- **W3Schools HTML** : [HTML](https://www.w3schools.com)
+- **W3Schools CSS** : [CSS](https://www.w3schools.com)
+- **W3Schools JavaScript** : [JavaScript](https://www.w3schools.com)
+- **Documentation Git** : [Git](https://git-scm.com/doc)
 
-## 3. Etapes de creation du projet django
+## 3. Étapes de Création du Projet Django
 
-### A. Creer et  environnement virtuel
-#### python -m venv web_env
-#### web_env\Scripts\activate
+### A. Créer un Environnement Virtuel
+```bash
+python -m venv web_env
+web_env\Scripts\activate  # Pour Windows
+# source web_env/bin/activate  # Pour MacOS/Linux
+```
 
-### B. Creer app projet django
-#### pip install Django
-#### django-admin startproject gestion_cours
-#### cd gestion_cours
-#### python manage.py runserver
-#### ctrl + c
-#### python manage.py makemigrations
-#### python manage.py migrate
-#### python manage.py startapp cours
+### B. Créer le Projet Django
+```bash
+pip install Django
+django-admin startproject gestion_cours
+cd gestion_cours
+python manage.py runserver
+# Arrêter le serveur avec Ctrl + C
+python manage.py makemigrations
+python manage.py migrate
+python manage.py startapp cours
+```
 
-## 4. Configuration du projet django
-### Pour ajouter un nouvel app dans le projet django
-#### Aller dans le fichier settings.py et ajouter la nouvelle app
-##### INSTALLED_APPS = [
-#####     .....
-#####     'cours.apps.CoursConfig',
-##### ]
-### Aller dans le fichier urls du projet et ajouter l'urls de la nouvelle app
-##### from django.urls import path, include
-##### from django.contrib import admin
-#### urlpatterns = [
-####     path('admin/', admin.site.urls),
-####     path('', include('cours.urls'))
-#### ]
+## 4. Configuration du Projet Django
 
-### Pour configurer les templates de django
-#### Creer un dossier templates dans votre projet
-#### Aller dans le fichier settings.py et ajouter la nouvelle template dans la liste DIRS
-##### TEMPLATES = [
-#####     .....
-#####     {
-#####         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#####         'DIRS': [
-#####              BASE_DIR / 'templates' 
-#####          ],
-#####         .....
-#####     },
-##### ]
+### A. Ajouter une Nouvelle Application
+#### Ouvrez le fichier ```bash settings.py``` et ajoutez l'application :
+```bash
+INSTALLED_APPS = [
+    ...
+    'cours.apps.CoursConfig',
+]
+```
 
-### Pour ajouter les fichiers statiques dans le projet django
-#### Aller dans le fichier settings.py et ajouter la nouvelle app
-##### STATICFILES_DIRS = [
-#####    BASE_DIR / 'static',
-##### ]
+#### Dans le fichier ```bash urls.py``` du projet, incluez les URLs de l'application :
+```bash
+from django.urls import path, include
+from django.contrib import admin
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('cours.urls')),
+]
+```
+
+### B. Configurer les Templates de Django
+#### Créez un dossier ```bash templates``` dans votre projet.
+#### Dans ```bash settings.py```, ajoutez le chemin vers le dossier de templates dans DIRS :
+```bash 
+TEMPLATES = [
+    ...
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR / 'templates',
+        ],
+        ...
+    },
+]
+```
+
+### C. Ajouter des Fichiers Statiques
+#### Dans ```bash settings.py```, configurez les fichiers statiques :
+```bash
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+```

@@ -1,0 +1,63 @@
+{% extends 'cours/base.html' %}
+
+{% block title %}Mes cours{% endblock title %}
+
+{% block content %}
+    <div class="flex items-center justify-between mb-2">
+        <h2 class="text-2xl font-bold">Mes cours</h2>
+        <a href="{% url 'cours:add_cours' %}" class="px-6 py-1.5 bg-primary text-white rounded-md shadow hover:bg-blue-500 transition">
+            Nouveau cours
+        </a>
+    </div>
+    {% if messages %}
+        <div class="p-4 mb-4 text-2sm text-center text-black-800 rounded-lg bg-yellow-50 dark:bg-gray-800" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if cours %}
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-4 py-3">Nom</th>
+                        <th scope="col" class="px-4 py-3">Desciption</th>
+                        <th scope="col" class="px-4 py-3">Date création</th>
+                        <th scope="col" class="px-4 py-3"></th>
+                        <th scope="col" class="px-4 py-3"></th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    {% for course in cours %}
+                        <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{course.nom}}
+                            </td>
+                            <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{course.description}}
+                            </td>
+                            <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{course.created_at}}
+                            </td>
+                            <td class="px-4 py-2">
+                                <a href="{% url 'cours:update_cours' course.id %}" class="px-6 py-1.5 bg-primary text-white rounded-md shadow hover:bg-blue-500 transition">
+                                    Modifier
+                                </a>
+                            </td>
+                            <td class="px-4 py-2">
+                                <a onclick="return confirm('Voulez-vous vraiment supprimer ce cours')" href="{% url 'cours:delete_cours' course.id %}" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                    Supprimer
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="text-gray-600">
+            Aucun cours trouvé pour vous
+        </p>
+    {% endif %}
+{% endblock content %}
