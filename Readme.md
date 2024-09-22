@@ -23,7 +23,7 @@ Ce projet vise à présenter les fondamentaux du développement d'applications w
 ```bash
 python -m venv web_env
 web_env\Scripts\activate  # Pour Windows
-# source web_env/bin/activate  # Pour MacOS/Linux
+source web_env/bin/activate  # Pour MacOS/Linux
 ```
 
 ### B. Créer le Projet Django
@@ -41,7 +41,7 @@ python manage.py startapp cours
 ## 4. Configuration du Projet Django
 
 ### A. Ajouter une Nouvelle Application
-#### Ouvrez le fichier ```bash settings.py``` et ajoutez l'application :
+#### Ouvrez le fichier ```settings.py``` et ajoutez l'application :
 ```bash
 INSTALLED_APPS = [
     ...
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-#### Dans le fichier ```bash urls.py``` du projet, incluez les URLs de l'application :
+#### Dans le fichier ```urls.py``` du projet, incluez les URLs de l'application :
 ```bash
 from django.urls import path, include
 from django.contrib import admin
@@ -61,7 +61,7 @@ urlpatterns = [
 ```
 
 ### B. Configurer les Templates de Django
-#### Créez un dossier ```bash templates``` dans votre projet.
+#### Créez un dossier ```templates``` dans votre projet.
 #### Dans ```bash settings.py```, ajoutez le chemin vers le dossier de templates dans DIRS :
 ```bash 
 TEMPLATES = [
@@ -77,7 +77,7 @@ TEMPLATES = [
 ```
 
 ### C. Ajouter des Fichiers Statiques
-#### Dans ```bash settings.py```, configurez les fichiers statiques :
+#### Dans ```settings.py```, configurez les fichiers statiques :
 ```bash
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
