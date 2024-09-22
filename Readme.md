@@ -62,7 +62,7 @@ urlpatterns = [
 
 ### B. Configurer les Templates de Django
 #### Créez un dossier ```templates``` dans votre projet.
-#### Dans ```bash settings.py```, ajoutez le chemin vers le dossier de templates dans DIRS :
+#### Dans ```settings.py```, ajoutez le chemin vers le dossier de templates dans DIRS :
 ```bash 
 TEMPLATES = [
     ...
